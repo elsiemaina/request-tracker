@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <h1>Request Tracker</h1>
+        <p>Submit a bug, idea, or piece of feedback. Track it through to resolution.</p>
+    </header>
+
+    <main class="layout">
+
+        <section class="panel form-panel" aria-labelledby="form-heading">
+            <h2 id="form-heading">New request</h2>
+
+            <form id="request-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" required placeholder="Your full name">
+
+                <label for="email">Email</label>
+                <input type="text" id="email" required placeholder="j@example.com">
+
+                <label for="type">Request type</label>
+                <select id="type" required>
+                    <option value="" disabled selected>Choose a type</option>
+                    <option value="Bug">Bug</option>
+                    <option value="Feature Request">Feature Request</option>
+                    <option value="General Feedback">General Feedback</option>
+                    <option value="Partnership">Partnership</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="priority">priority</label>
+                <select id="priority" required>
+                    <option value="" disabled selected>Choose a priority</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+
+                <label for="message">Message</label>
+                <textarea id="message" required rows="4" placeholder="Describe your request..."></textarea>
+
+                <button type="submit">Submit request</button>
+            </form>
+        </section>
+
+        <section class="panel list-panel" aria-labelledby="list-heading">
+            <div class="list-header">
+                <h2 id="list-heading">All requests</h2>
+                <span id="request-count" class="count-pill">0</span>
+            </div>
+
+            <div class="filters">
+                <input type="text" id="search-input" placeholder="Search by name or email...">
+
+                <select id="filter-type">
+                    <option value="all">All types</option>
+                    <option value="Bug">Bug</option>
+                    <option value="Feature Request">Feature Request</option>
+                    <option value="General Feedback">General Feedback</option>
+                    <option value="Partnership">Partnership</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <select id="filter-status">
+                    <option value="all">All statuses</option>
+                    <option value="New">New</option>
+                    <option value="In Review">In Review</option>
+                    <option value="Resolved">Resolved</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+            </div>
+
+            <div id="request-list" class="request-list">
+
+            </div>
+
+            <p id="empty-state" class="empty-state" hidden>
+                No requests match these filters yet.
+            </p>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
